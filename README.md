@@ -7,7 +7,7 @@ logutil
 
 【使用方法】
 
-(1)在页面上引入了log4js.js后，就可以调用
+(1)在页面上引入了logutil.js后，就可以调用
 
 LogUtil.setLogLevel("xxx"); 来设置log的级别。
 

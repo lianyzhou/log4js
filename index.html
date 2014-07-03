@@ -48,6 +48,37 @@ xxx的值有
 【特殊说明】
 
 当设置的log级别不是"all","debug","info","log","warn","error","none"中的任意一个时，会被当做all来处理。即全部日志都会输出到控制台上。
+
+【测试代码】
+
+console.debug(1);
+console.info(2);
+console.log(3);
+console.warn(4);
+console.error(5);
+
+LogUtil.setLogLevel("info");
+console.debug(6);
+console.info(7);
+
+LogUtil.setLogLevel("log");
+console.debug(8);
+console.info(9);
+console.log(10);
+
+LogUtil.setLogLevel("warn");
+console.debug(11);
+console.info(12);
+console.log(13);
+console.warn(14);
+
+LogUtil.setLogLevel("error");
+console.debug(15);
+console.info(16);
+console.log(17);
+console.warn(18);
+console.error(19);
+  
 </pre>
 
 <script src="log4js.js"></script>

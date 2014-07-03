@@ -13,13 +13,26 @@ log4js
 
 【使用方法】
 
-在页面上引入了log4js.js后，就可以调用
+(1)在页面上引入了log4js.js后，就可以调用
 
 LogUtil.setLogLevel("xxx");  来设置log的级别。
+
+LogUtil是window上的全局变量。
 
 xxx的值有
 
 "all","debug","info","log","warn","error","none"
+
+(2)为了方便项目进行调试，支持在页面URL上面使用参数的形式设置log级别。
+
+例如 ： 
+
+      http://1ocalhost:8080/index.html?_loglevel=error
+      http://1ocalhost:8080/index.html?page=3&_loglevel=error
+      http://localhost:8080/index.html#list?_loglevel=warn
+      http://localhost:8080/index.html#list?page=3&_loglevel=warn
+ 
+参数为_loglevel,值为"all","debug","info","log","warn","error","none"其中的一个。
 
 【说明】
 
@@ -36,4 +49,8 @@ xxx的值有
 设置 warn 级别后， （4）（5）会输出，（1）（2）（3）不会输出。
 
 设置 error 级别后， （5）会输出，（1）（2）（3）（4）不会输出。
+
+【特殊说明】
+
+当设置的log级别不是"all","debug","info","log","warn","error","none"中的任意一个时，会被当做all来处理。即全部日志都会输出到控制台上。
 

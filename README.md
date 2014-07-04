@@ -46,4 +46,4 @@ xxx的值有
 
 【特殊说明】
 
-当设置的log级别不是"all","debug","info","log","warn","error","none"中的任意一个时，会被当做all来处理。即全部日志都会输出到控制台上。
+当设置的log级别不是"all","debug","info","log","warn","error","none"中的任意一个时，会被当做none来处理。即全部日志都不会输出到控制台上。

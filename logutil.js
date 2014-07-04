@@ -10,13 +10,13 @@
 		//all的时候显示所有log
 		//none的时候所有log都不显示
 		method_arr = ["all","debug","info","log","warn","error","none"] , 
-		//默认log级别为all
-		logLevel = "all";
+		//默认log级别为none
+		logLevel = "none";
 	
 	//检测level字符串不符合要求的时候默认为all
 	function checkLevelStr(level) {
 		if(method_arr.indexOf(level) < 0) {
-			level = 'all';
+			level = 'none';
 		}
 		return level;
 	}

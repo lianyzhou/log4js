@@ -6,14 +6,13 @@
 	//oldMethodMap用来记录原有console的各个函数
 	var oldMethodMap = {} , 
 		//method_arr按照顺序优先级记下logLevel的程度
-		//特意添加两个logLevel  all 和 none
-		//all的时候显示所有log
+		//特意添加一个logLevel  none
 		//none的时候所有log都不显示
-		method_arr = ["all","debug","info","log","warn","error","none"] , 
+		method_arr = ["log","debug","info","warn","error","none"] , 
 		//默认log级别为none
 		logLevel = "none";
 	
-	//检测level字符串不符合要求的时候默认为all
+	//检测level字符串不符合要求的时候默认为none
 	function checkLevelStr(level) {
 		if(method_arr.indexOf(level) < 0) {
 			level = 'none';
@@ -28,7 +27,7 @@
 	
 	//在url上寻找_loglevel=xxx，作为初始化loglevel
 	var href = window.location.href , 
-		reg = /[?&]_loglevel=([^&]+)/i;
+		reg = /[?&#]_loglevel=([^&]+)/i;
 	
 	if(reg.test(href)) {
 		logLevel = checkLevelStr(RegExp.$1);

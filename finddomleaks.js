@@ -59,7 +59,7 @@ function getJqueryEvent(dom) {
 }
  
 function findDomLeaks(evtCount) {
-    evtCount = evtCount || 1;
+    evtCount = evtCount || 2;
     if(typeof cmd_getEventListeners !== 'function' && getEventListenersPromptCount++ < 1 && window.chrome) {
         console.log('please run this from console ------------------------------------------------------------------');
         console.log('window.cmd_getEventListeners = (function() {\n\

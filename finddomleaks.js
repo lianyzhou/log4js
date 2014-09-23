@@ -4,7 +4,9 @@
 var sourceCodeLen = 100;
 var splice = Array.prototype.splice;
 var consoleLog = console.log;
- 
+
+var getEventListenersPromptCount = 0;
+
 function buildItem(obj) {
     var ret = [];
     ret.push(obj.dom);
@@ -58,7 +60,7 @@ function getJqueryEvent(dom) {
  
 function findDomLeaks(evtCount) {
     evtCount = evtCount || 1;
-    if(typeof cmd_getEventListeners !== 'function') {
+    if(typeof cmd_getEventListeners !== 'function' && getEventListenersPromptCount++ <= 1) {
         console.log('please run this from console ------------------------------------------------------------------');
         console.log('window.cmd_getEventListeners = (function() {\n\
             return getEventListeners;\n\
@@ -82,7 +84,7 @@ function findDomLeaks(evtCount) {
                 var jqEvtIdx = -1;
                 $(evtList).each(function(j , obj) {
                     var source = obj.listener.toString();
-                    if(source.indexOf('jQuery.event.dispatch') >= 0) {
+                    if(source.indexOf('.event.dispatch') >= 0) {
                         jqEvtIdx = i;
                         return false;
                     }

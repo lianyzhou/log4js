@@ -118,6 +118,7 @@ function findDomLeaks(evtCount) {
 }
  
 window.findDomLeaks = findDomLeaks;
- 
- 
+
+findDomLeaks();
+
 })(window);
